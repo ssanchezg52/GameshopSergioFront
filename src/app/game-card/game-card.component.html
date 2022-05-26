@@ -1,0 +1,26 @@
+<div class="gameCard_gameCardsContainer" >
+  <mat-card class="card" *ngFor="let gameEditionCard of gameEditionListInput" (click)="openDialog(gameEditionCard)">
+    <div>
+      <img src="{{gameEditionCard.game.coverPage}}" class="img_coverPage">
+    </div>
+    <mat-card-content>
+      <div class="tittleAndPriceContainer">
+        <div class="tittleContainer">
+          <span class="tittle fw-bolder fs-5">{{gameEditionCard.game.name}}</span>
+        </div>
+        <div>
+          <span class="styleText fw-bolder fs-5">{{gameEditionCard.price}}€</span>
+        </div>
+      </div>
+      <div class="plataformContainer">
+        <div>
+          <span class="fw-bolder fs-5">Disponible en: </span>
+          <div class="plataformIconsContainer" *ngFor="let plataform of gameEditionCard.game.plataform">
+            <img src="{{plataform.urlIcon}}" class="img_plataformIcon">
+          </div>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>
+

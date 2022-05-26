@@ -1,0 +1,158 @@
+.gameContainer {
+  min-height: 100%;
+  background-image: url(../../assets/img/fondoJuego.jpg);
+  background-repeat: around;
+  font-family: Helvetica;
+}
+
+.nav-top {
+  height: 6vh;
+  background-color: #226CE0;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+}
+
+.gameCards {
+  width: 100%;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.filters {
+  width: 80%;
+  height: 7vh;
+  background-color: #82816D;
+  border-radius: 20px;
+  margin-bottom: 20px;
+  margin-top: 4%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 50px;
+  justify-content: left;
+}
+
+.game_gameCardsContainer {
+  width: 90%;
+  min-height: 81vh;
+  background-color: #82816D;
+  border-radius: 20px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.example-additional-selection {
+  opacity: 0.75;
+  font-size: 0.75em;
+}
+
+.selectPlataforma {
+  margin-left: 12px;
+  background-color: #A7A7A9;
+  border-radius: 10px;
+}
+
+.filterSelect {
+  background-color: #A7A7A9;
+  border-radius: 10px;
+  border-color: #A7A7A9;
+  color: white;
+}
+
+.filterSelect option {
+  background-color: aliceblue;
+  color: black;
+}
+
+.filterSelect option[disabled] {
+  background-color: gray;
+  color: rebeccapurple;
+}
+
+.inputSmall {
+  width: 100%;
+  background-color: transparent;
+  box-shadow: none;
+  border-radius: 20px;
+  border: none;
+}
+
+.containerSearch {
+  display: flex;
+  flex-direction: row;
+  cursor: pointer;
+  width: 250px;
+  background-color: #fff;
+  border-radius: 20px;
+}
+
+.addBoxShadow {
+  box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(0, 112, 238, 0.6);
+}
+
+.iconContainer {
+  position: relative;
+  right: 8px;
+  background-color: transparent;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-left: none;
+  height: 35px;
+  margin-top: 1px;
+}
+
+.containerInput {
+  width: 250px;
+}
+
+.card {
+  width: 30%;
+  height: 45%;
+}
+
+.img_coverPage {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tittleAndPriceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tittleContainer {
+  width: 90%;
+  padding: 0 5px;
+}
+
+.plataformContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+}
+
+.img_plataformIcon {
+  width: 20px;
+  margin-right: 7px;
+  padding-bottom: 5px;
+}
+
+.plataformIconsContainer{
+  display: inline-block;
+}
+
+.centerContainer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+}

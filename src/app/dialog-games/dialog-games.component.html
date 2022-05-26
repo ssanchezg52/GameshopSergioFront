@@ -1,0 +1,46 @@
+<div class="btnCloseContainer">
+  <button mat-button [mat-dialog-close]="true" class="fs-5">X</button>
+</div>
+<mat-dialog-content class="mat-typography">
+  <div class="coverPageDialogContainer shadow-lg p-3 mb-5 bg-body rounded">
+    <div class="coverPageElemContainer">
+      <img src={{edition.game.coverPage}} class="coverPageGameImage">
+    </div>
+    <div class="coverPageElemContainer">
+      <div class="tittleGameContainer">
+        <span class="fw-bolder fs-2">{{edition.game.name}}</span>
+      </div>
+      <div>
+        <span class="fw-bolder fs-6">Precio: {{edition.price}}€</span>
+      </div>
+      <div class="iconPlataformContainer">
+        <div>
+          <span class="fw-bolder fs-5" >Disponible en:</span>
+        </div>
+        <div class="iconPlataformContainer">
+          <div *ngFor="let plataform of edition.game.plataform" >
+            <img src={{plataform.urlIcon}} width="20px">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="infoGameContainer shadow-lg p-3 mb-5 bg-body rounded">
+    <div>
+      <span class="fw-bolder fs-3">Acerca de juego</span>
+    </div>
+    <div>
+      <span class="fs-5"> {{edition.game.description }}</span>
+    </div>
+    <div>
+      <span class="fw-bolder fs-3">Plataformas disponibles</span>
+    </div>
+    <div>
+      <ul style="display:flex;flex-direction: column;gap:20px">
+        <li *ngFor="let plataform of edition.game.plataform" class="fs-5">{{plataform.name}}</li>
+      </ul>
+    </div>
+  </div>
+
+</mat-dialog-content>
+

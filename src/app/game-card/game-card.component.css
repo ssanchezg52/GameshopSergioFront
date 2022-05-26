@@ -1,0 +1,53 @@
+.card {
+  width: 30%;
+  height: 45%;
+  border: none;
+  background-color: #B5A886;
+}
+
+.card:hover{
+  background-color: #226CE0;
+}
+
+.img_coverPage {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.tittleAndPriceContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.tittleContainer {
+  width: 90%;
+  padding: 0 5px;
+}
+
+.plataformContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 70%;
+  margin-top: 15px;
+}
+
+.img_plataformIcon {
+  width: 20px;
+  margin-right: 7px;
+  padding-bottom: 5px;
+}
+
+.plataformIconsContainer{
+  display: inline-block;
+}
+
+.gameCard_gameCardsContainer{
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  flex-wrap: wrap;
+}

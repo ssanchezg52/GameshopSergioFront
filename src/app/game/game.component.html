@@ -1,0 +1,31 @@
+<div class="gameContainer">
+  <nav class="nav-top">
+    <app-nav></app-nav>
+  </nav>
+  <div class="gameCards">
+    <div class="filters">
+      <div class="selectPlataforma">
+        <select class="form-select filterSelect">
+          <option disabled selected>Plataforma</option>
+          <option>PC</option>
+          <option>PC</option>
+          <option>PC</option>
+        </select>
+      </div>
+      <div class="containerSearch">
+        <div class="containerInput">
+          <input class="form-control inputSmall" (focus)="eventFocusSearch()" (blur)="eventBlurSearch()" [(ngModel)]="searchGameTittle" (keyup)="searchNameGame()">
+        </div>
+        <div class="iconContainer">
+          <mat-icon>search</mat-icon>
+        </div>
+      </div>
+    </div>
+    <div class="game_gameCardsContainer">
+      <app-game-card [gameEditionListInput] = gameEditionList></app-game-card>
+      <div id="btnVerMas" class="centerContainer">
+        <button mat-raised-button color="primary" (click)="turnThePage()">Ver más</button>
+      </div>
+    </div>
+  </div>
+</div>
