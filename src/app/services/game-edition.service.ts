@@ -1,4 +1,4 @@
-import { HttpClient, HttpParams } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { Pagination } from '../interfaces/Pagination';
@@ -15,8 +15,16 @@ export class GameEditionService {
 
   constructor(private http:HttpClient) { }
 
-  getGameEditionListByPage(pagination:Pagination):Observable<Response>{
-    return <Observable<Response>> this.http.get<Response>(this.apiUrl + this.gameEditionListByPage + pagination.page + "/" +pagination.size);
+  getHttpOptions(accessToken:String | undefined){
+    return {
+      headers: new HttpHeaders({
+        "Authorization": "Bearer "+accessToken
+      })}
+  }
+
+  getGameEditionListByPage(pagination:Pagination, accessToken?:string):Observable<Response>{
+    console.log(accessToken)
+    return <Observable<Response>> this.http.get<Response>(this.apiUrl + this.gameEditionListByPage + pagination.page + "/" +pagination.size,this.getHttpOptions(accessToken));
   }
 
   getGameEditionListBySearch(search:string,pagination:Pagination):Observable<Response>{

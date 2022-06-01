@@ -33,3 +33,25 @@ mat-toolbar{
 .icon:hover{
   background-color: azure;
 }
+
+.accountContainer{
+  display: none;
+  position: absolute;
+  top: 70px;
+  right: 10px;
+  background-color: #28AFB0;
+  width: 200px;
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 10px;
+}
+
+.accountContainer div span[texto]{
+  cursor: pointer;
+}
+
+.accountContainer div span:hover[texto]{
+  color: wheat;
+}

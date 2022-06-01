@@ -1,0 +1,29 @@
+<div class="loginContainer">
+  <nav class="nav-top">
+    <app-nav></app-nav>
+  </nav>
+  <form class="cardLogin" [formGroup]="profileForm">
+    <h1>Login</h1>
+    <div>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Usuario</mat-label>
+        <input matInput type="text" name="user" formControlName="username">
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="user.setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="example-form-field" appearance="fill">
+        <mat-label>Contraseña</mat-label>
+        <input matInput type="password" name="password" formControlName="password">
+        <button matSuffix mat-icon-button aria-label="Clear" (click)="pass.setValue('')">
+          <mat-icon>close</mat-icon>
+        </button>
+      </mat-form-field>
+    </div>
+    <div (click)="login()">
+      <button mat-raised-button color="primary">Login</button>
+    </div>
+  </form>
+</div>

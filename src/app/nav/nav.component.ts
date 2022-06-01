@@ -12,4 +12,14 @@ export class NavComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  showContainerAccount(){
+    if ($(".accountContainer").css("display") == "none"){
+      $(".accountContainer").css("display","flex");
+      $(".iconArrowAccountContainer").show();
+    }else{
+      $(".accountContainer").hide();
+      $(".iconArrowAccountContainer").hide();
+    }
+  }
+
 }

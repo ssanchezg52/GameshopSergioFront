@@ -25,6 +25,7 @@
 
 .coverPageDialogContainer{
   display: flex;
+  margin-top: 15px;
 }
 
 .iconPlataformContainer{

@@ -1,10 +1,18 @@
 <mat-toolbar>
-  <span class="separator titulo">GameshopSergio</span>
-  <span class="separator" submenu="s">Game</span>
+  <span class="separator titulo" routerLink="/">GameshopSergio</span>
+  <span class="separator" submenu="s" routerLink="/">Game</span>
   <span class="example-spacer"></span>
-  <button mat-icon-button class="icon">
+  <button mat-icon-button class="icon" (click)="showContainerAccount()">
     <mat-icon>account_circle</mat-icon>
   </button>
+  <div class="accountContainer">
+    <div>
+      <span texto routerLink="/login">Iniciar sesion</span>
+    </div>
+    <div>
+      <span texto routerLink="/register">Registrarse</span>
+    </div>
+  </div>
   <button mat-icon-button class="icon">
     <mat-icon>menu</mat-icon>
   </button>
