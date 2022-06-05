@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { SwalComponent } from '@sweetalert2/ngx-sweetalert2/lib/swal.component';
+import * as Swal from 'sweetalert2';
 import { TokenService } from '../services/token.service';
 
 @Component({
@@ -14,7 +16,7 @@ export class LoginComponent implements OnInit {
   user = new FormControl('',[Validators.required,Validators.minLength(3)])
   pass = new FormControl('',[Validators.required,Validators.minLength(3)]);
 
-  constructor(private tokenService:TokenService,private router:Router) {
+  constructor(private tokenService:TokenService) {
     this.profileForm=new FormGroup({});
     this.profileForm.setControl('username',this.user);
     this.profileForm.setControl('password',this.pass);
@@ -25,10 +27,8 @@ export class LoginComponent implements OnInit {
 
   login(){
     if (this.profileForm.valid){
+      $(".spinnerContainer").css("display","flex");
       this.tokenService.getAccessToken(this.user.value,this.pass.value);
-      setTimeout(()=>{
-        this.router.navigate(["/"]);
-      },100)
     }else{
       let usernameControl = this.profileForm.get("username");
       let passwordControl = this.profileForm.get("password");

@@ -6,14 +6,17 @@
     <mat-icon>account_circle</mat-icon>
   </button>
   <div class="accountContainer">
-    <div>
+    <div *ngIf="!authenticated">
       <span texto routerLink="/login">Iniciar sesion</span>
     </div>
-    <div>
+    <div *ngIf="!authenticated">
       <span texto routerLink="/register">Registrarse</span>
     </div>
+    <div *ngIf="authenticated">
+      <span>¡Bienvenido {{user?.username}}!</span>
+    </div>
+    <div *ngIf="authenticated">
+      <span texto (click)="logout()">Cerrar sesión</span>
+    </div>
   </div>
-  <button mat-icon-button class="icon">
-    <mat-icon>menu</mat-icon>
-  </button>
 </mat-toolbar>

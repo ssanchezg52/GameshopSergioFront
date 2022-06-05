@@ -3,6 +3,7 @@
   height: 45%;
   border: none;
   background-color: #B5A886;
+  cursor: pointer;
 }
 
 .card:hover{
@@ -50,4 +51,16 @@
   align-items: flex-start;
   gap: 40px;
   flex-wrap: wrap;
+}
+
+@media (max-width: 950px){
+  .card{
+    width: 47%;
+  }
+}
+
+@media (max-width: 800px){
+  .card{
+    width: 90%;
+  }
 }

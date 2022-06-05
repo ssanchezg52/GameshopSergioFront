@@ -8,6 +8,7 @@ import { Response } from '../interfaces/Response';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogGamesComponent } from '../dialog-games/dialog-games.component';
 import { TokenService } from '../services/token.service';
+import { Filter } from '../interfaces/Filter';
 
 @Component({
   selector: 'app-game',
@@ -20,6 +21,7 @@ export class GameComponent implements OnInit {
   page:number = 0;
   size:number = 9;
   searchGameTittle:string = "";
+  optionSelectedPlataform:string = "Todos";
   gameEditionList:Edition[] = [];
   constructor(private gameEditionService:GameEditionService,private distributeGameList:DistributeListGamesService,private tokenService:TokenService) { }
 
@@ -40,7 +42,7 @@ export class GameComponent implements OnInit {
         setTimeout(() => {
           this.calls++;
           this.getGameEditionListByPage();
-        },1000)
+        },120)
         }
       }
     );
@@ -55,17 +57,27 @@ export class GameComponent implements OnInit {
     $(".containerSearch").removeClass("addBoxShadow");
   }
 
-  searchNameGame(){
-    console.log(this.searchGameTittle)
-    if (this.searchGameTittle == ""){
+  searchByFilter(isTurnPage:boolean){
+    if (!isTurnPage){
       this.page = 0;
+    }
+    this.getGameListByFilter();
+  }
+
+  getGameListByFilter(){
+    if (this.searchGameTittle == "" && this.optionSelectedPlataform == "Todos"){
       this.gameEditionList = [];
       this.getGameEditionListByPage();
     }else{
-      this.gameEditionService.getGameEditionListBySearch(this.searchGameTittle,new Pagination(this.page,this.size)).subscribe(
+      let filter:Filter = {plataformSelected:this.optionSelectedPlataform, search: this.searchGameTittle}
+      this.gameEditionService.getGameEditionListByFilter(filter,new Pagination(this.page,this.size),this.tokenService.accessToken).subscribe(
         response => {
-          this.gameEditionList = response.data.gameEditionListContent.editionList.content;
-          this.isLastPage(response)
+          if (this.page < 1){
+            this.gameEditionList = response.data.gameEditionListContent.editionList.content;
+          }else{
+            this.gameEditionList.push(...response.data.gameEditionListContent.editionList.content);
+          }
+          this.isLastPage(response);
         }
       )
     }
@@ -81,6 +93,10 @@ export class GameComponent implements OnInit {
 
   turnThePage(){
     this.page++;
-    this.getGameEditionListByPage();
+    if (this.searchGameTittle == "" && this.optionSelectedPlataform == "Todos"){
+      this.getGameEditionListByPage();
+    }else{
+      this.searchByFilter(true)
+    }
   }
 }

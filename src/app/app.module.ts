@@ -20,6 +20,8 @@ import { DialogGamesComponent } from './dialog-games/dialog-games.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
+import { SpinnerComponent } from './spinner/spinner.component';
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { RegisterComponent } from './register/register.component';
     GameCardComponent,
     DialogGamesComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    SpinnerComponent
   ],
   imports: [
     BrowserModule,
@@ -44,8 +47,9 @@ import { RegisterComponent } from './register/register.component';
     HttpClientModule,
     FormsModule,
     MatDialogModule,
-    BrowserAnimationsModule
-  ],
+    BrowserAnimationsModule,
+    MatProgressSpinnerModule
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })

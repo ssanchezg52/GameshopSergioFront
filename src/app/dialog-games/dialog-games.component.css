@@ -44,3 +44,12 @@
 .tittleGameContainer{
   text-decoration: underline;
 }
+
+@media (max-width: 650px){
+  .coverPageDialogContainer{
+    flex-direction: column;
+  }
+  .coverPageElemContainer{
+    padding: 15px 0;
+  }
+}

@@ -9,7 +9,8 @@
           <span class="tittle fw-bolder fs-5">{{gameEditionCard.game.name}}</span>
         </div>
         <div>
-          <span class="styleText fw-bolder fs-5">{{gameEditionCard.price}}€</span>
+          <span class="styleText fw-bolder fs-5">{{gameEditionCard.price.toString().replace(".",",")}}€</span>
+
         </div>
       </div>
       <div class="plataformContainer">

@@ -10,12 +10,13 @@
 .cardRegister{
   background-color: aliceblue;
   width: 20%;
-  height: 400px;
+  height: 450px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   border-radius: 20px;
+  gap: 10px;
 }
 
 mat-form-field{
@@ -29,4 +30,17 @@ mat-form-field{
   width: 100%;
   top: 0;
   z-index: 99;
+}
+
+.loginText{
+  color: black;
+  text-decoration: none;
+}
+
+.loginTextContainer{
+  margin-top: 10px;
+}
+
+.loginText:hover{
+  font-weight: bold;
 }

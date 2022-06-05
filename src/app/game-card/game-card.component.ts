@@ -2,8 +2,6 @@ import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogGamesComponent } from '../dialog-games/dialog-games.component';
 import { Edition } from '../interfaces/Edition';
-import { DistributeListGamesService } from '../services/distribute-list-games.service';
-import { GameEditionService } from '../services/game-edition.service';
 
 @Component({
   selector: 'app-game-card',
@@ -21,7 +19,6 @@ export class GameCardComponent implements OnInit {
   }
 
   openDialog(edition:Edition){
-    console.log("hey")
     this.dialog.open(DialogGamesComponent, {
       height: "90%",
       width: "100%",

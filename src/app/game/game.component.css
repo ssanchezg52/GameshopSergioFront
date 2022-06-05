@@ -1,6 +1,6 @@
 .gameContainer {
   min-height: 100%;
-  background-image: url(../../assets/img/fondoJuego.jpg);
+  background: url(../../assets/img/fondoJuego.jpg);
   background-repeat: around;
   font-family: Helvetica;
 }
@@ -24,7 +24,7 @@
 }
 
 .filters {
-  width: 80%;
+  width: 35%;
   height: 7vh;
   background-color: #82816D;
   border-radius: 20px;
@@ -34,7 +34,7 @@
   flex-direction: row;
   align-items: center;
   gap: 50px;
-  justify-content: left;
+  justify-content: center;
 }
 
 .game_gameCardsContainer {
@@ -51,25 +51,31 @@
   font-size: 0.75em;
 }
 
-.selectPlataforma {
+.selectPlataform {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
   margin-left: 12px;
-  background-color: #A7A7A9;
   border-radius: 10px;
+  color: white;
+  font-weight: bold;
+  gap: 10px;
 }
 
-.filterSelect {
+filterSelect {
   background-color: #A7A7A9;
   border-radius: 10px;
   border-color: #A7A7A9;
   color: white;
 }
 
-.filterSelect option {
+#filterSelect option {
   background-color: aliceblue;
   color: black;
 }
 
-.filterSelect option[disabled] {
+#filterSelect option[disabled] {
   background-color: gray;
   color: rebeccapurple;
 }
@@ -156,3 +162,66 @@
   align-items: center;
   margin-top: 40px;
 }
+
+@media (max-width: 1700px){
+  .filters{
+    width: 45%;
+    margin-top: 5%;
+  }
+}
+
+@media (max-width: 1300px){
+  .filters{
+    width: 70%;
+    margin-top: 7%;
+  }
+}
+
+@media (max-width: 950px){
+  .filters{
+    margin-top: 8%;
+  }
+}
+
+@media (max-width: 800px){
+  .filters{
+    width: 90%;
+    margin-top: 10%;
+  }
+}
+
+@media (max-width: 650px){
+  .containerInput {
+    width: 150px;
+  }
+  .containerSearch{
+    width: 150px;
+  }
+  #filterSelect{
+    width: 60%;
+  }
+  .filters{
+    margin-top: 14%;
+  }
+}
+
+@media (max-width: 500px){
+  .containerInput {
+    width: 135px;
+  }
+  .containerSearch{
+    width: 135px;
+  }
+  #filterSelect{
+    width: 50%;
+  }
+  .filters{
+    gap: 5px;
+  }
+  .selectPlataform{
+    font-size: 14px;
+    margin-left: 0;
+    gap: 5px;
+  }
+}
+

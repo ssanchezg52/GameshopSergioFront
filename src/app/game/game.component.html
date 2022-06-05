@@ -4,17 +4,21 @@
   </nav>
   <div class="gameCards">
     <div class="filters">
-      <div class="selectPlataforma">
-        <select class="form-select filterSelect">
-          <option disabled selected>Plataforma</option>
-          <option>PC</option>
-          <option>PC</option>
-          <option>PC</option>
+      <div class="selectPlataform">
+        <label class="lblPlataformtTittle" for="filterSelect">Plataforma:</label>
+        <select id="filterSelect" class="form-select" [(ngModel)]="optionSelectedPlataform" (change)="searchByFilter(false)">
+          <option value="Todos">Todos</option>
+          <option value="PC">PC</option>
+          <option value="PlayStation4">PlayStation 4</option>
+          <option value="Xbox One">Xbox One</option>
+          <option value="PlayStation5">PlayStation 5</option>
+          <option value="Xbox Series">Xbox Series</option>
+          <option value="Nintendo Switch">Nintendo Switch</option>
         </select>
       </div>
       <div class="containerSearch">
         <div class="containerInput">
-          <input class="form-control inputSmall" (focus)="eventFocusSearch()" (blur)="eventBlurSearch()" [(ngModel)]="searchGameTittle" (keyup)="searchNameGame()">
+          <input class="form-control inputSmall" (focus)="eventFocusSearch()" (blur)="eventBlurSearch()" [(ngModel)]="searchGameTittle" (keyup)="searchByFilter(false)">
         </div>
         <div class="iconContainer">
           <mat-icon>search</mat-icon>
