@@ -1,6 +1,6 @@
 .gameContainer {
   min-height: 100%;
-  background: url(../../assets/img/fondoJuego.jpg);
+  background: #37393A;
   background-repeat: around;
   font-family: Helvetica;
 }
@@ -26,7 +26,7 @@
 .filters {
   width: 35%;
   height: 7vh;
-  background-color: #82816D;
+  background-color: rgb(107, 75, 62);
   border-radius: 20px;
   margin-bottom: 20px;
   margin-top: 4%;
@@ -40,7 +40,7 @@
 .game_gameCardsContainer {
   width: 90%;
   min-height: 81vh;
-  background-color: #82816D;
+  background-color: rgb(107, 75, 62);
   border-radius: 20px;
   padding: 20px;
   margin-bottom: 20px;
@@ -61,23 +61,6 @@
   color: white;
   font-weight: bold;
   gap: 10px;
-}
-
-filterSelect {
-  background-color: #A7A7A9;
-  border-radius: 10px;
-  border-color: #A7A7A9;
-  color: white;
-}
-
-#filterSelect option {
-  background-color: aliceblue;
-  color: black;
-}
-
-#filterSelect option[disabled] {
-  background-color: gray;
-  color: rebeccapurple;
 }
 
 .inputSmall {
@@ -163,6 +146,10 @@ filterSelect {
   margin-top: 40px;
 }
 
+#btn:hover{
+  font-size: 15px;
+}
+
 @media (max-width: 1700px){
   .filters{
     width: 45%;
@@ -180,6 +167,13 @@ filterSelect {
 @media (max-width: 950px){
   .filters{
     margin-top: 8%;
+  }
+}
+
+@media (max-width: 801px){
+  .filters{
+    width: 90%;
+    margin-top: 10%;
   }
 }
 

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { User } from '../interfaces/User';
 import { TokenService } from '../services/token.service';
@@ -9,13 +9,18 @@ import { TokenService } from '../services/token.service';
   styleUrls: ['./nav.component.css']
 })
 export class NavComponent implements OnInit {
-
+  @Input() currentComponent!:string;
   user!:User | undefined;
   authenticated:boolean = false;
 
   constructor(private tokenService:TokenService, private router:Router) { }
 
   ngOnInit(): void {
+    if (this.currentComponent != undefined){
+      $(".separator[name='"+ this.currentComponent +"']").css("color","black");
+      $(".separator[name='"+ this.currentComponent +"']").css("cursor","auto");
+      $(".separator[name='"+ this.currentComponent +"']").css("font-weight","bold");
+    }
   }
 
   showContainerAccount(){

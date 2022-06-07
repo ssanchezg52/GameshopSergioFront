@@ -1,6 +1,6 @@
 <mat-toolbar>
   <span class="separator titulo" routerLink="/">GameshopSergio</span>
-  <span class="separator" submenu="s" routerLink="/">Game</span>
+  <span class="separator" submenu="s" name="Game" routerLink="/">Game</span>
   <span class="example-spacer"></span>
   <button mat-icon-button class="icon" (click)="showContainerAccount()">
     <mat-icon>account_circle</mat-icon>
@@ -12,8 +12,8 @@
     <div *ngIf="!authenticated">
       <span texto routerLink="/register">Registrarse</span>
     </div>
-    <div *ngIf="authenticated">
-      <span>¡Bienvenido {{user?.username}}!</span>
+    <div class="welcomeText" *ngIf="authenticated">
+      <span>¡Bienvenid@ {{user?.username}}!</span>
     </div>
     <div *ngIf="authenticated">
       <span texto (click)="logout()">Cerrar sesión</span>

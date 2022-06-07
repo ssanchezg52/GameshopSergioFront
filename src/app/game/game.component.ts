@@ -5,10 +5,10 @@ import { Pagination } from '../interfaces/Pagination';
 import { DistributeListGamesService } from '../services/distribute-list-games.service';
 import { GameEditionService } from '../services/game-edition.service';
 import { Response } from '../interfaces/Response';
-import { MatDialog } from '@angular/material/dialog';
-import { DialogGamesComponent } from '../dialog-games/dialog-games.component';
 import { TokenService } from '../services/token.service';
 import { Filter } from '../interfaces/Filter';
+import { DialogSuccessfullyLoggedInComponent } from '../dialog-successfully-logged-in/dialog-successfully-logged-in.component';
+import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-game',
@@ -23,10 +23,13 @@ export class GameComponent implements OnInit {
   searchGameTittle:string = "";
   optionSelectedPlataform:string = "Todos";
   gameEditionList:Edition[] = [];
-  constructor(private gameEditionService:GameEditionService,private distributeGameList:DistributeListGamesService,private tokenService:TokenService) { }
+  constructor(private gameEditionService:GameEditionService,private distributeGameList:DistributeListGamesService,private tokenService:TokenService, private dialog:MatDialog) { }
 
   ngOnInit() {
     this.getGameEditionListByPage();
+    setTimeout(()=>{
+      this.dialog.closeAll();
+    },800)
   }
 
   getGameEditionListByPage(){

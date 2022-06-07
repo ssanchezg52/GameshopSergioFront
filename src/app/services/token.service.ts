@@ -1,7 +1,11 @@
 import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
 import { Router } from '@angular/router';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2';
+import { DialogLoginErrorComponent } from '../dialog-login-error/dialog-login-error.component';
+import { DialogRegistrationErrorComponent } from '../dialog-registration-error/dialog-registration-error.component';
+import { DialogSuccessfullyLoggedInComponent } from '../dialog-successfully-logged-in/dialog-successfully-logged-in.component';
+import { DialogSuccessfullyRegisterComponent } from '../dialog-successfully-register/dialog-successfully-register.component';
 import { RegisterUser } from '../interfaces/RegisterUser';
 import { User } from '../interfaces/User';
 
@@ -13,9 +17,8 @@ export class TokenService {
   private readonly apiUrl = "http://localhost:8080"
   private _authenticated = false;
   private _user?:User = undefined;
-  public dontFindUser!: SwalComponent;
 
-  constructor(private http:HttpClient,private router:Router) {
+  constructor(private http:HttpClient,private router:Router,private dialog:MatDialog) {
 
   }
 
@@ -34,14 +37,15 @@ export class TokenService {
       this._user = user;
       this._authenticated = true;
       $(".spinnerContainer").css("display","none");
-      this.router.navigate(["/"]);
-    },error => {
-      $(".spinnerContainer").css("display","none");
-      if (alert != null){
-        setTimeout(()=>{
-          alert("No se ha encontrado el usuario")
-        },10)
-      }
+      this.dialog.open(DialogSuccessfullyLoggedInComponent)
+      setTimeout(()=>{
+        this.router.navigate(["/"]);
+      },1000)
+      },
+      error => {
+        $(".spinnerContainer").css("display","none");
+        this.dialog.open(DialogLoginErrorComponent)
+        this.closeDialog(3000);
     });
   }
 
@@ -56,13 +60,24 @@ export class TokenService {
         .set("passwordConfirm",registerUser.passConfirm)
     }
     this.http.post<Boolean>(this.apiUrl+"/register",null,httpOptions).subscribe((e)=>{
-      if (e != false){
-        this.getAccessToken(registerUser.user,registerUser.pass);
-        this.router.navigate(["/"]);
-      }else{
-        alert("EL USUARIO YA EXISTE O LAS CONTRASEÑAS NO COINCIDEN");
-      }
-    });
+        if (e != false){
+          this.dialog.open(DialogSuccessfullyRegisterComponent)
+          setTimeout(()=>{
+            this.dialog.closeAll();
+            this.getAccessToken(registerUser.user,registerUser.pass);
+            this.router.navigate(["/"]);
+          }, 1000)
+        }else{
+          $(".spinnerContainer").css("display","none");
+          this.dialog.open(DialogRegistrationErrorComponent)
+          this.closeDialog(3000);
+        }
+      },
+      error=>{
+        $(".spinnerContainer").css("display","none");
+        this.dialog.open(DialogRegistrationErrorComponent)
+        this.closeDialog(3000);
+      });
   }
 
   refreshToken(){
@@ -78,6 +93,12 @@ export class TokenService {
   logOut(){
     this.http.get(this.apiUrl+"/logout");
     this._authenticated = false;
+  }
+
+  closeDialog(time:number){
+    setTimeout(()=>{
+      this.dialog.closeAll();
+    },time)
   }
 
   public get authenticated(){

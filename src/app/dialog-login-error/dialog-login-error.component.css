@@ -1,0 +1,17 @@
+.icon{
+  width: 150px;
+}
+
+.iconSuccessContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textLogIn{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+  color: red;
+}

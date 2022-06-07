@@ -4,7 +4,7 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-image: url("../../assets/img/fondoJuego.jpg");
+  background: #37393A;
 }
 
 .cardRegister{
@@ -43,4 +43,44 @@ mat-form-field{
 
 .loginText:hover{
   font-weight: bold;
+}
+
+.spinnerContainer{
+  display: none;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgb(135, 130, 130,0.5);
+  z-index: 99;
+}
+
+#btn:hover{
+  font-size: 15px;
+}
+
+@media (max-width: 1500px){
+  .cardRegister{
+    width: 26%;
+  }
+}
+
+@media (max-width: 1100px){
+  .cardRegister{
+    width: 34%;
+  }
+}
+
+@media (max-width: 750px){
+  .cardRegister{
+    width: 46%;
+  }
+}
+
+@media (max-width: 600px){
+  .cardRegister{
+    width: 60%;
+  }
 }

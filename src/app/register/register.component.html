@@ -32,10 +32,13 @@
       </mat-form-field>
     </div>
     <div (click)="signUp()">
-      <button mat-raised-button color="primary">Registrarse</button>
+      <button id="btn" mat-raised-button color="primary">Registrarse</button>
     </div>
     <div class="loginTextContainer">
       <a routerLink="/login" class="loginText">Si ya tienes cuenta, logueate aquí</a>
     </div>
   </form>
+</div>
+<div class="spinnerContainer">
+  <app-spinner></app-spinner>
 </div>

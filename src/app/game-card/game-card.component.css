@@ -1,13 +1,13 @@
 .card {
-  width: 30%;
+  width: 31%;
   height: 45%;
   border: none;
-  background-color: #B5A886;
+  background-color: #C49E85;
   cursor: pointer;
 }
 
 .card:hover{
-  background-color: #226CE0;
+  background-color: #FFD6AF;
 }
 
 .img_coverPage {
@@ -47,15 +47,30 @@
 .gameCard_gameCardsContainer{
   height: 100%;
   display: flex;
-  justify-content: center;
-  align-items: flex-start;
+  justify-content: left;
+  align-items: baseline;
   gap: 40px;
   flex-wrap: wrap;
+  position: relative;
+  left: 0.9%;
 }
 
-@media (max-width: 950px){
+.starIconContainer{
+  position: relative;
+  display: flex;
+  justify-content: end;
+}
+
+@media (max-width: 1331px){
   .card{
     width: 47%;
+  }
+}
+
+@media (max-width: 801px){
+  .gameCard_gameCardsContainer{
+    justify-content: center;
+    left: 0;
   }
 }
 

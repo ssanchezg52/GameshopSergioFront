@@ -1,0 +1,13 @@
+.icon{
+  width: 150px;
+}
+
+.iconSuccessContainer{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.textRegister{
+  padding: 20px;
+}

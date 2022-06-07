@@ -1,7 +1,9 @@
+import { HtmlTagDefinition } from '@angular/compiler';
 import { Component, Input, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { DialogGamesComponent } from '../dialog-games/dialog-games.component';
 import { Edition } from '../interfaces/Edition';
+import { FavoriteGameListService } from '../services/favorite-game-list.service';
 
 @Component({
   selector: 'app-game-card',
@@ -11,7 +13,7 @@ import { Edition } from '../interfaces/Edition';
 export class GameCardComponent implements OnInit {
 
   @Input() gameEditionListInput:Edition[] = [];
-  constructor(private dialog:MatDialog) {
+  constructor(private dialog:MatDialog,private favoriteListGame:FavoriteGameListService) {
    }
 
   ngOnInit(): void {

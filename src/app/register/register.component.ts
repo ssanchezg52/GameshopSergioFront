@@ -28,11 +28,9 @@ export class RegisterComponent implements OnInit {
 
   signUp(){
     if (this.profileForm.valid){
+      $(".spinnerContainer").css("display","flex");
       let registerUser:RegisterUser = {user:this.user.value,pass:this.pass.value,passConfirm:this.passConfirm.value}
       this.tokenService.registerNewUser(registerUser);
-      setTimeout(()=>{
-
-      },110)
     }else{
       let usernameControl = this.profileForm.get("username");
       let passwordControl = this.profileForm.get("password");

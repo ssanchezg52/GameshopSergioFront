@@ -15,13 +15,17 @@ import { GameCardComponent } from './game-card/game-card.component';
 import {MatButtonModule} from '@angular/material/button';
 import { HttpClientModule } from '@angular/common/http';
 import { FormsModule } from '@angular/forms';
-import {MatDialogModule} from '@angular/material/dialog';
+import {MatDialogModule, MatDialogRef} from '@angular/material/dialog';
 import { DialogGamesComponent } from './dialog-games/dialog-games.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 import { SpinnerComponent } from './spinner/spinner.component';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
+import { DialogSuccessfullyLoggedInComponent } from './dialog-successfully-logged-in/dialog-successfully-logged-in.component';
+import { DialogSuccessfullyRegisterComponent } from './dialog-successfully-register/dialog-successfully-register.component';
+import { DialogRegistrationErrorComponent } from './dialog-registration-error/dialog-registration-error.component';
+import { DialogLoginErrorComponent } from './dialog-login-error/dialog-login-error.component';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,11 @@ import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
     DialogGamesComponent,
     LoginComponent,
     RegisterComponent,
-    SpinnerComponent
+    SpinnerComponent,
+    DialogSuccessfullyLoggedInComponent,
+    DialogSuccessfullyRegisterComponent,
+    DialogRegistrationErrorComponent,
+    DialogLoginErrorComponent
   ],
   imports: [
     BrowserModule,

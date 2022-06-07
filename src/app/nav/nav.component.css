@@ -14,10 +14,11 @@ mat-toolbar{
 .separator{
   margin-left: 10px;
   cursor: pointer;
+  color: white;
 }
 
 .separator:hover{
-  color: azure;
+  color: black;
 }
 
 .separator[submenu="s"]{
@@ -39,13 +40,14 @@ mat-toolbar{
   position: absolute;
   top: 70px;
   right: 10px;
-  background-color: #28AFB0;
+  background-color: #E8EEF2;
   width: 200px;
   border-radius: 10px;
   justify-content: center;
   align-items: center;
   flex-direction: column;
   padding: 10px;
+  gap: 5px;
 }
 
 .accountContainer div span[texto]{
@@ -53,5 +55,13 @@ mat-toolbar{
 }
 
 .accountContainer div span:hover[texto]{
-  color: wheat;
+  color: blue;
+  font-weight: bold;
+}
+
+.welcomeText{
+  white-space: nowrap;
+  width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }

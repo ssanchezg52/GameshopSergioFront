@@ -1,6 +1,6 @@
 <div class="gameContainer">
   <nav class="nav-top">
-    <app-nav></app-nav>
+    <app-nav currentComponent="Game"></app-nav>
   </nav>
   <div class="gameCards">
     <div class="filters">
@@ -28,7 +28,7 @@
     <div class="game_gameCardsContainer">
       <app-game-card [gameEditionListInput] = gameEditionList></app-game-card>
       <div id="btnVerMas" class="centerContainer">
-        <button mat-raised-button color="primary" (click)="turnThePage()">Ver más</button>
+        <button id="btn" mat-raised-button color="primary" (click)="turnThePage()">Ver más</button>
       </div>
     </div>
   </div>

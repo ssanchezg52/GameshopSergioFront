@@ -1,8 +1,6 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
-import { Router } from '@angular/router';
-import { SwalComponent } from '@sweetalert2/ngx-sweetalert2/lib/swal.component';
-import * as Swal from 'sweetalert2';
+import { MatDialog } from '@angular/material/dialog';
 import { TokenService } from '../services/token.service';
 
 @Component({
