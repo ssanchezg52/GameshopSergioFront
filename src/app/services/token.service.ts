@@ -8,6 +8,7 @@ import { DialogSuccessfullyLoggedInComponent } from '../dialog-successfully-logg
 import { DialogSuccessfullyRegisterComponent } from '../dialog-successfully-register/dialog-successfully-register.component';
 import { RegisterUser } from '../interfaces/RegisterUser';
 import { User } from '../interfaces/User';
+import { Token } from "../interfaces/Token";
 
 @Injectable({
   providedIn: 'root'
@@ -85,8 +86,11 @@ export class TokenService {
       headers: new HttpHeaders({
         "Authorization": "Bearer "+this._user?.tokens.refresh_token
       })}
-      this.http.get<User>(this.apiUrl+"/token/refresh",httpOptions).subscribe(user=>{
-        this._user = user;
+      this.http.get<Token>(this.apiUrl+"/token/refresh",httpOptions).subscribe(token=>{
+        if (this._user != undefined){
+          this._user.tokens.access_token = token.access_token;
+          this._user.tokens.refresh_token = token.refresh_token;
+        }
       });
   }
 

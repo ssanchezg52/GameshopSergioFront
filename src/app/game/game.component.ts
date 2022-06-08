@@ -68,22 +68,33 @@ export class GameComponent implements OnInit {
   }
 
   getGameListByFilter(){
-    if (this.searchGameTittle == "" && this.optionSelectedPlataform == "Todos"){
-      this.gameEditionList = [];
-      this.getGameEditionListByPage();
-    }else{
-      let filter:Filter = {plataformSelected:this.optionSelectedPlataform, search: this.searchGameTittle}
-      this.gameEditionService.getGameEditionListByFilter(filter,new Pagination(this.page,this.size),this.tokenService.accessToken).subscribe(
-        response => {
-          if (this.page < 1){
-            this.gameEditionList = response.data.gameEditionListContent.editionList.content;
-          }else{
-            this.gameEditionList.push(...response.data.gameEditionListContent.editionList.content);
+    setTimeout(()=>{
+      if (this.searchGameTittle == "" && this.optionSelectedPlataform == "Todos"){
+        this.gameEditionList = [];
+        this.getGameEditionListByPage();
+      }else{
+        let filter:Filter = {plataformSelected:this.optionSelectedPlataform, search: this.searchGameTittle}
+        this.gameEditionService.getGameEditionListByFilter(filter,new Pagination(this.page,this.size),this.tokenService.accessToken).subscribe(
+          response => {
+            if (this.page < 1){
+              this.gameEditionList = response.data.gameEditionListContent.editionList.content;
+            }else{
+              this.gameEditionList.push(...response.data.gameEditionListContent.editionList.content);
+            }
+            this.isLastPage(response);
+          },
+          error => {
+            if (this.calls < 1){
+              this.tokenService.refreshToken();
+            setTimeout(() => {
+              this.calls++;
+              this.getGameListByFilter();
+            },120)
+            }
           }
-          this.isLastPage(response);
-        }
-      )
-    }
+        )
+      }
+    },120)
   }
 
   isLastPage(response:Response){
